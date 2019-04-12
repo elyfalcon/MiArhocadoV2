@@ -23,7 +23,8 @@ public class MiAhorcadoV extends javax.swing.JFrame {
     public int ran;
     public int err;
     public String res[];
-    
+    Diccionario lista;
+   // Diccionario lista = new Diccionario();
     
     
     public MiAhorcadoV() {
@@ -31,7 +32,8 @@ public class MiAhorcadoV extends javax.swing.JFrame {
         imgs = new ImageIcon[6];
         btns = new JButton[27];
         msgs = new String[20];
-        Diccionario lista = new Diccionario();
+     //   Diccionario lista = new Diccionario();
+       
         
         
          //botones para las letras
@@ -91,19 +93,31 @@ public class MiAhorcadoV extends javax.swing.JFrame {
             btns[i].setEnabled(true);
         }
         //para generar una palabra aleatoriamente
-        ran = (int) 0 + (int) (Math.random() * ((msgs.length - 1) + 1));
+       // ran = (int) 0 + (int) (Math.random() * ((msgs.length - 1) + 1));
         //SEPARA EL MENSAJE POR PALABRAS
         //ACA DEBO PONER EL ARRAY DE LA LISTA DEL DICCIONARIO PERO NO ME SALE
-        String pal[] = msgs[ran].split(" ");
-        res = new String[msgs[ran].length() + 1];
+        this.lista = Diccionario.cargarDiccionario("diccionario.xml");
+        String pal[] = new String[this.lista.getLista().size()];
+      //  res = new String[msgs[ran].length() + 1];
+   //     int j = 0;
+        for (int i = 0; i < pal.length; i++)
+        {
+            pal[i] = this.lista.getLista().get(i).getPalabra();
+        }
+
+        ran = (int) 0 + (int) (Math.random() * ((pal.length - 1) + 1));
+
+        res = new String[pal[ran].length()];
+
         int j = 0;
+        
         // seran los guiones que van debajo de las letras como una separacion_
         
         
         for (String pal1 : pal) {
             for (int i = 0; i < pal1.length(); i++) {
                 jTextPane1.setText(jTextPane1.getText() + "_ ");
-                res[j++] = "_";
+                res[i] = "_";
             }
             jTextPane1.setText(jTextPane1.getText() + "\n");
             res[j++] = " ";

@@ -41,6 +41,9 @@ public class Diccionario {
         getLista().add(new Palabras("casa",1,"lugar donde se habita"));
         getLista().add(new Palabras("martillo",2,"Herramienta para golpear"));
         getLista().add(new Palabras("estrella",3,"Herramienta para golpear"));
+      //  getLista().add(new Palabras("casa"));
+      //  getLista().add(new Palabras("perro"));
+      //  getLista().add(new Palabras("martillo"));
        
     }
 
@@ -98,7 +101,7 @@ public class Diccionario {
      {
         if (nombre.length() < 15)
         {
-            this.getLista().add(new Palabras(nombre, nivel, pista));
+             this.getLista().add(new Palabras(nombre, nivel, pista));
         }
 
         else

@@ -19,11 +19,14 @@ public class Palabras {
     private int nivel;
     private String descripcion;
     
-
-    public Palabras(String palabra, int nivel, String descripcion) {
+    /**
+     *
+     * @param palabra
+     */
+    public Palabras(String palabra, int nivel,String descripcion) {
         this.palabra = palabra;
         this.nivel = nivel;
-        this.descripcion = descripcion;
+       this.descripcion = descripcion;
     }
 
     public Palabras() {
